@@ -1,0 +1,70 @@
+"""
+An ISO 8601-encoded datetime
+"""
+scalar ISO8601DateTime
+
+type Mutation {
+  """
+  An example field added by the generator
+  """
+  testField: String!
+}
+
+"""
+An object with an ID.
+"""
+interface Node {
+  """
+  ID of the object.
+  """
+  id: ID!
+}
+
+type Post implements Node {
+  body: String
+  createdAt: ISO8601DateTime!
+
+  """
+  ID of the object.
+  """
+  id: ID!
+  title: String
+  updatedAt: ISO8601DateTime!
+}
+
+type Query {
+  """
+  Fetches an object given its ID.
+  """
+  node(
+    """
+    ID of the object.
+    """
+    id: ID!
+  ): Node
+
+  """
+  Fetches a list of objects given a list of IDs.
+  """
+  nodes(
+    """
+    IDs of the objects.
+    """
+    ids: [ID!]!
+  ): [Node]!
+
+  """
+  Find a post by ID
+  """
+  post(id: ID!): Post
+
+  """
+  All the posts
+  """
+  posts: [Post!]
+}
+
+type Subscription {
+  post(id: ID!): Post!
+  posts: Post!
+}

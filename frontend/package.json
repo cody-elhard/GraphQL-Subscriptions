@@ -1,0 +1,49 @@
+{
+  "name": "test-action-cable-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.1.5",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^14.1.1",
+    "babel-plugin-relay": "^13.2.0",
+    "eslint-config-react-app": "^7.0.1",
+    "graphql-ruby-client": "^1.10.7",
+    "graphql-ws": "^5.7.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-relay": "^13.2.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "relay-compiler": "^13.2.0"
+  },
+  "scripts": {
+    "start": "PORT=3001 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "relay": "relay-compiler"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
