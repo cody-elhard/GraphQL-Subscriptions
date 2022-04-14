@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 gem 'rack-cors'
 
 gem 'graphql'
+source 'https://92c50003041:1574ba082b6@gems.graphql.pro' do
+  gem 'graphql-pro'
+end
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

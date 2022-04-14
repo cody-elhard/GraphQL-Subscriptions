@@ -1,20 +1,28 @@
 import './App.css';
 
-import { useEffect, useState } from 'react';
+import graphql from 'babel-plugin-relay/macro';
+import { RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay';
+
+import RelayEnvSetup from './RelayEnvSetup';
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const data = useLazyLoadQuery(
+    graphql`
+      query AppQuery {
+        posts {
+          id
+          title
+        }
+      }
+    `
+  )
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('http://localhost:3000/posts.json');
-      console.log('response', response);
-      const body = await response.json();
-      setPosts(body);
-    }
+  console.log(data);
 
-    fetchData()
-  }, []);
+  let posts = [];
+  if (data?.posts) {
+    posts = data.posts;
+  }
 
   return (
     <div className="App">
@@ -31,4 +39,12 @@ function App() {
   );
 }
 
-export default App;
+function Wrapper() {
+  return (
+    <RelayEnvironmentProvider environment={RelayEnvSetup}>
+      <App />
+    </RelayEnvironmentProvider>
+  )
+}
+
+export default Wrapper;

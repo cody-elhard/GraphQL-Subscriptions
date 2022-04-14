@@ -1,4 +1,10 @@
 GEM
+  remote: https://92c50003041:1574ba082b6@gems.graphql.pro/
+  specs:
+    graphql-pro (1.22.1)
+      graphql (>= 1.7.5)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.0.2.3)
@@ -223,6 +229,7 @@ DEPENDENCIES
   debug
   graphiql-rails
   graphql
+  graphql-pro!
   importmap-rails
   jbuilder
   pg
