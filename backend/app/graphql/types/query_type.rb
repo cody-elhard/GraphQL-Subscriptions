@@ -7,14 +7,17 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    # TODO: remove me
+    field :posts, [PostType] do
+      description 'All the posts'
+    end
+
     field :post, PostType do
       description 'Find a post by ID'
       argument :id, ID, required: true
+    end
 
-      # resolve -> (obj, args, ctx) {
-      #   Post.find(args[:id])
-      # }
+    def posts
+      Post.all
     end
 
     def post(id:)
