@@ -1964,6 +1964,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rails/actioncable@npm:^6.1.5":
+  version: 6.1.5
+  resolution: "@rails/actioncable@npm:6.1.5"
+  checksum: eb5d130b94833187224d7d59d62a1cde9808b0355127a979e98264e2831d6e5096643f467f5d954a29bdc4ddc878641315681ae573c1c689ac4085c05679f46d
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-babel@npm:^5.2.0":
   version: 5.3.1
   resolution: "@rollup/plugin-babel@npm:5.3.1"
@@ -6215,6 +6222,30 @@ __metadata:
   version: 4.2.10
   resolution: "graceful-fs@npm:4.2.10"
   checksum: 3f109d70ae123951905d85032ebeae3c2a5a7a997430df00ea30df0e3a6c60cf6689b109654d6fdacd28810a053348c4d14642da1d075049e6be1ba5216218da
+  languageName: node
+  linkType: hard
+
+"graphql-ruby-client@npm:^1.10.7":
+  version: 1.10.7
+  resolution: "graphql-ruby-client@npm:1.10.7"
+  dependencies:
+    glob: ^7.1.4
+    minimist: ^1.2.0
+  peerDependencies:
+    "@apollo/client": ">=3.3.6"
+    graphql: ">=14.3.1"
+  bin:
+    graphql-ruby-client: cli.js
+  checksum: 36c0648ce4af9e84135ae451112febb78fd68c2a74a8ca92a55290ccc7d34f6a177b416f749df39c797ef132031401062623f3448e8204812fc85ab3acbd08f2
+  languageName: node
+  linkType: hard
+
+"graphql-ws@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "graphql-ws@npm:5.7.0"
+  peerDependencies:
+    graphql: ">=0.11 <=16"
+  checksum: 39f795abc48a79177e54f5ef47331424987ba7194361dcfe983fd17c10ef853102b41283b996ab763c4293ea4c1215ba1da36d571c2487f4ff54d2b67a1dc176
   languageName: node
   linkType: hard
 
@@ -11401,11 +11432,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test-action-cable-frontend@workspace:."
   dependencies:
+    "@rails/actioncable": ^6.1.5
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.0.1
     "@testing-library/user-event": ^13.5.0
     babel-plugin-relay: ^13.2.0
     eslint-config-react-app: ^7.0.1
+    graphql-ruby-client: ^1.10.7
+    graphql-ws: ^5.7.0
     react: ^18.0.0
     react-dom: ^18.0.0
     react-relay: ^13.2.0

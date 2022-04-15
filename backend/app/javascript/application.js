@@ -6,7 +6,7 @@ import App, { createConsumer } from "@rails/actioncable"
 
 App.logger.enabled = false
 
-const consumer = createConsumer()
+const consumer = createConsumer('http://localhost:3000/cable')
 
 consumer.subscriptions.create({ channel: "PostChannel" }, {
   initialized() {
@@ -41,5 +41,7 @@ consumer.subscriptions.create({ channel: "PostChannel" }, {
     console.log('disconnected');
   }
 });
+
+console.log(consumer);
 
 console.log('lets go!');
