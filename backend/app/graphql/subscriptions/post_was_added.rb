@@ -6,14 +6,14 @@ class Subscriptions::PostWasAdded < GraphQL::Schema::Subscription
   field :title, String, null: false
 
   def subscribe
-    {
-      title: 'Title to be returned?'
-    }
+    # {
+    #   title: 'subscription started'
+    # }
   end
 
   def update
     {
-      title: 'newer title'
+      title: 'Received an update'
     }
   end
 end
