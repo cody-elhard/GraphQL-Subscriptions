@@ -4,4 +4,6 @@ class Types::SubscriptionType < GraphQL::Schema::Object
   # argument_class Types::BaseArgument
 
   field :post_was_added, subscription: ::Subscriptions::PostWasAdded
+
+  def post_was_added; end
 end

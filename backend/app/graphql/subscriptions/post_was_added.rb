@@ -6,9 +6,14 @@ class Subscriptions::PostWasAdded < GraphQL::Schema::Subscription
   field :title, String, null: false
 
   def subscribe
-    puts 'it subscribes?'
     {
-      title: 'testing the title'
+      title: 'Title to be returned?'
+    }
+  end
+
+  def update
+    {
+      title: 'newer title'
     }
   end
 end
