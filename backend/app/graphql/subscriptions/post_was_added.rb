@@ -1,9 +1,7 @@
 class Subscriptions::PostWasAdded < GraphQL::Schema::Subscription
-  object_class Types::BaseObject
+  object_class Types::PostType
   field_class Types::BaseField
   argument_class Types::BaseArgument
-
-  field :title, String, null: false
 
   def subscribe
     # {
@@ -12,8 +10,6 @@ class Subscriptions::PostWasAdded < GraphQL::Schema::Subscription
   end
 
   def update
-    {
-      title: 'Received an update'
-    }
+    Post.last
   end
 end

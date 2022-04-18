@@ -10,13 +10,14 @@ const subscription = graphql`
   subscription AppSubscription {
     postWasAdded {
       title
+      body
     }
   }
 `;
 
 
 function App() {
-  const [subscriptionStatus, setSubscriptionStatus] = useState('not started')
+  const [subscriptionPosts, setSubscriptionPosts] = useState([]);
 
   const data = useLazyLoadQuery(
     graphql`
@@ -34,8 +35,10 @@ function App() {
   useSubscription(
     {
       onNext: (data) => {
-        console.log('subscription data', data);
-        setSubscriptionStatus(data['postWasAdded']['title'])
+        setSubscriptionPosts([
+          ...subscriptionPosts,
+          data['postWasAdded']
+        ])
       },
       variables: { },
       subscription
@@ -49,12 +52,14 @@ function App() {
     posts = data.posts;
   }
 
+  posts = [
+    ...posts,
+    ...subscriptionPosts
+  ];
+
   return (
     <div className="App">
-      <h1> My Posts 2 </h1>
-      <h3>
-        {`Subscription Status: ${subscriptionStatus}`}
-      </h3>
+      <h1> My Posts </h1>
 
       <ul>
         {posts.map(post => (
