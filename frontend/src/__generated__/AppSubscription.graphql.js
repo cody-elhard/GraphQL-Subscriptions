@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2003afc6864e2994f327936ade169097>>
+ * @generated SignedSource<<89f86b13c7b8424affcb24d029c4a686>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,6 +14,7 @@ import type { ConcreteRequest, GraphQLSubscription } from 'relay-runtime';
 export type AppSubscription$variables = {||};
 export type AppSubscription$data = {|
   +postWasAdded: {|
+    +id: string,
     +title: ?string,
     +body: ?string,
   |},
@@ -25,41 +26,47 @@ export type AppSubscription = {|
 */
 
 var node/*: ConcreteRequest*/ = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "title",
-  "storageKey": null
-},
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "body",
-  "storageKey": null
-};
+var v0 = [
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "PostWasAddedPayload",
+    "kind": "LinkedField",
+    "name": "postWasAdded",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "id",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "title",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "body",
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
+  }
+];
 return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
     "name": "AppSubscription",
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "PostWasAddedPayload",
-        "kind": "LinkedField",
-        "name": "postWasAdded",
-        "plural": false,
-        "selections": [
-          (v0/*: any*/),
-          (v1/*: any*/)
-        ],
-        "storageKey": null
-      }
-    ],
+    "selections": (v0/*: any*/),
     "type": "Subscription",
     "abstractKey": null
   },
@@ -68,41 +75,20 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "AppSubscription",
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "PostWasAddedPayload",
-        "kind": "LinkedField",
-        "name": "postWasAdded",
-        "plural": false,
-        "selections": [
-          (v0/*: any*/),
-          (v1/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      }
-    ]
+    "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "604f590c8491724fc8f81d50fd21bff0",
+    "cacheID": "e569a0b06b90b0c0e28cb00b3bf34f23",
     "id": null,
     "metadata": {},
     "name": "AppSubscription",
     "operationKind": "subscription",
-    "text": "subscription AppSubscription {\n  postWasAdded {\n    title\n    body\n    id\n  }\n}\n"
+    "text": "subscription AppSubscription {\n  postWasAdded {\n    id\n    title\n    body\n  }\n}\n"
   }
 };
 })();
 
-(node/*: any*/).hash = "4325fed713f69034f6ec26612d0c641e";
+(node/*: any*/).hash = "df1a4c60dcb5239493ed4b37bd8daf68";
 
 module.exports = ((node/*: any*/)/*: GraphQLSubscription<
   AppSubscription$variables,

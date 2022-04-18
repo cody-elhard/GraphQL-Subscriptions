@@ -9,6 +9,7 @@ import { useState } from 'react';
 const subscription = graphql`
   subscription AppSubscription {
     postWasAdded {
+      id
       title
       body
     }
