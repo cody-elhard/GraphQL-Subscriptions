@@ -3,11 +3,7 @@ class Subscriptions::PostWasAdded < GraphQL::Schema::Subscription
   field_class Types::BaseField
   argument_class Types::BaseArgument
 
-  def subscribe
-    # {
-    #   title: 'subscription started'
-    # }
-  end
+  def subscribe; end
 
   def update
     Post.last

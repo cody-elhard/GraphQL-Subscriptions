@@ -30,8 +30,6 @@ function App() {
     `
   )
 
-  // const config = useMemo(() => ({ variables: { }, subscription }), [Math.random()]);
-
   useSubscription(
     {
       onNext: (data) => {
@@ -44,8 +42,6 @@ function App() {
       subscription
     }
   );
-
-  console.log(data);
 
   let posts = [];
   if (data?.posts) {
