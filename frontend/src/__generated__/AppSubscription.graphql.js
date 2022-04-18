@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<89f86b13c7b8424affcb24d029c4a686>>
+ * @generated SignedSource<<e2b5d206f785ec91a63a822546e70818>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,7 +13,7 @@
 import type { ConcreteRequest, GraphQLSubscription } from 'relay-runtime';
 export type AppSubscription$variables = {||};
 export type AppSubscription$data = {|
-  +postWasAdded: {|
+  +postWasAddedOrUpdated: {|
     +id: string,
     +title: ?string,
     +body: ?string,
@@ -30,9 +30,9 @@ var v0 = [
   {
     "alias": null,
     "args": null,
-    "concreteType": "PostWasAddedPayload",
+    "concreteType": "Post",
     "kind": "LinkedField",
-    "name": "postWasAdded",
+    "name": "postWasAddedOrUpdated",
     "plural": false,
     "selections": [
       {
@@ -78,17 +78,17 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "e569a0b06b90b0c0e28cb00b3bf34f23",
+    "cacheID": "21b55a2cfee6d9e38b0f81993923e653",
     "id": null,
     "metadata": {},
     "name": "AppSubscription",
     "operationKind": "subscription",
-    "text": "subscription AppSubscription {\n  postWasAdded {\n    id\n    title\n    body\n  }\n}\n"
+    "text": "subscription AppSubscription {\n  postWasAddedOrUpdated {\n    id\n    title\n    body\n  }\n}\n"
   }
 };
 })();
 
-(node/*: any*/).hash = "df1a4c60dcb5239493ed4b37bd8daf68";
+(node/*: any*/).hash = "9348ead2d21991fceae6f8f537e9f54b";
 
 module.exports = ((node/*: any*/)/*: GraphQLSubscription<
   AppSubscription$variables,

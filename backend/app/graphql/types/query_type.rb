@@ -21,7 +21,10 @@ module Types
     end
 
     def post(id:)
-      Post.find(id)
+      post = GlobalID::Locator.locate(id)
+      return nil unless post.instance_of?(Post)
+
+      post
     end
   end
 end

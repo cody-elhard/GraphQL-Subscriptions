@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const subscription = graphql`
   subscription AppSubscription {
-    postWasAdded {
+    postWasAddedOrUpdated {
       id
       title
       body
@@ -18,7 +18,8 @@ const subscription = graphql`
 
 
 function App() {
-  const [subscriptionPosts, setSubscriptionPosts] = useState([]);
+  const [fetchKey, setFetchKey] = useState(0);
+  console.log('fetchKey', fetchKey);
 
   const data = useLazyLoadQuery(
     graphql`
@@ -28,16 +29,16 @@ function App() {
           title
         }
       }
-    `
+    `,
+    null,
+    { fetchKey, fetchPolicy: 'network' }
   )
 
   useSubscription(
     {
-      onNext: (data) => {
-        setSubscriptionPosts([
-          ...subscriptionPosts,
-          data['postWasAdded']
-        ])
+      onNext() {
+        console.log('new data');
+        setFetchKey(fetchKey + 1);
       },
       variables: { },
       subscription
@@ -48,11 +49,6 @@ function App() {
   if (data?.posts) {
     posts = data.posts;
   }
-
-  posts = [
-    ...posts,
-    ...subscriptionPosts
-  ];
 
   return (
     <div className="App">

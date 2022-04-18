@@ -2,7 +2,8 @@
 
 module Types
   class PostType < Types::BaseObject
-    field :id, ID, null: false
+    implements GraphQL::Types::Relay::Node
+
     field :body, String
     field :title, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
