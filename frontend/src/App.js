@@ -19,7 +19,6 @@ const subscription = graphql`
 
 function App() {
   const [fetchKey, setFetchKey] = useState(0);
-  console.log('fetchKey', fetchKey);
 
   const data = useLazyLoadQuery(
     graphql`
@@ -37,7 +36,6 @@ function App() {
   useSubscription(
     {
       onNext() {
-        console.log('new data');
         setFetchKey(fetchKey + 1);
       },
       variables: { },
