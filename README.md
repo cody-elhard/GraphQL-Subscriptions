@@ -9,3 +9,4 @@ cd /frontend && yarn && yarn start
 
 ## Helpful
 - rails graphql:schema:dump will generate the graphql file from ruby graphql
+- You will want to start a redis server
