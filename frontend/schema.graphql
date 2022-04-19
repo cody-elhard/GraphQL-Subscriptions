@@ -65,5 +65,6 @@ type Query {
 }
 
 type Subscription {
-  postWasAddedOrUpdated: Post!
+  post(id: ID!): Post!
+  posts: Post!
 }

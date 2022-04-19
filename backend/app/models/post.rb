@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   after_update :notify_subscribers
 
   def notify_subscribers
-    TestActionCableSchema.subscriptions.trigger(:post_was_added_or_updated, {}, self)
+    TestActionCableSchema.subscriptions.trigger(:posts, {}, self)
+    TestActionCableSchema.subscriptions.trigger(:post, { id: to_global_id.to_s }, self)
   end
 end

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const subscription = graphql`
   subscription AppSubscription {
-    postWasAddedOrUpdated {
+    posts {
       id
       title
       body

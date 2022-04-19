@@ -1,4 +1,4 @@
-class Subscriptions::PostWasAddedOrUpdated < ::Subscriptions::BaseSubscription
+class Subscriptions::Posts < ::Subscriptions::BaseSubscription
   payload_type Types::PostType
 
   def subscribe; end

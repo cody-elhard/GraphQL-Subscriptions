@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2321aa195e9ec7e58ff0c1b2d33ad22e>>
+ * @generated SignedSource<<d2d1a575a33b51c444b177844ea40a49>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -11,28 +11,43 @@
 
 /*::
 import type { ConcreteRequest, GraphQLSubscription } from 'relay-runtime';
-export type AppSubscription$variables = {||};
-export type AppSubscription$data = {|
-  +posts: {|
+export type SinglePostSubscription$variables = {|
+  id: string,
+|};
+export type SinglePostSubscription$data = {|
+  +post: {|
     +id: string,
     +title: ?string,
     +body: ?string,
   |},
 |};
-export type AppSubscription = {|
-  variables: AppSubscription$variables,
-  response: AppSubscription$data,
+export type SinglePostSubscription = {|
+  variables: SinglePostSubscription$variables,
+  response: SinglePostSubscription$data,
 |};
 */
 
 var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "id"
+  }
+],
+v1 = [
+  {
     "alias": null,
-    "args": null,
+    "args": [
+      {
+        "kind": "Variable",
+        "name": "id",
+        "variableName": "id"
+      }
+    ],
     "concreteType": "Post",
     "kind": "LinkedField",
-    "name": "posts",
+    "name": "post",
     "plural": false,
     "selections": [
       {
@@ -62,35 +77,35 @@ var v0 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "AppSubscription",
-    "selections": (v0/*: any*/),
+    "name": "SinglePostSubscription",
+    "selections": (v1/*: any*/),
     "type": "Subscription",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "AppSubscription",
-    "selections": (v0/*: any*/)
+    "name": "SinglePostSubscription",
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "807a78fc93dd61729715a9851814d063",
+    "cacheID": "69d0e9cd8c99c5d7b2ce72d6e725be20",
     "id": null,
     "metadata": {},
-    "name": "AppSubscription",
+    "name": "SinglePostSubscription",
     "operationKind": "subscription",
-    "text": "subscription AppSubscription {\n  posts {\n    id\n    title\n    body\n  }\n}\n"
+    "text": "subscription SinglePostSubscription(\n  $id: ID!\n) {\n  post(id: $id) {\n    id\n    title\n    body\n  }\n}\n"
   }
 };
 })();
 
-(node/*: any*/).hash = "3dae742c4afb692963e691f1565e64e2";
+(node/*: any*/).hash = "03a79f6ad88459dd55ec8b6e3c3fdf54";
 
 module.exports = ((node/*: any*/)/*: GraphQLSubscription<
-  AppSubscription$variables,
-  AppSubscription$data,
+  SinglePostSubscription$variables,
+  SinglePostSubscription$data,
 >*/);

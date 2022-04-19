@@ -1,9 +1,31 @@
-import { useLazyLoadQuery } from 'react-relay';
+import { useLazyLoadQuery, useSubscription } from 'react-relay';
 import graphql from 'babel-plugin-relay/macro';
 import { useParams } from "react-router-dom";
+import { useState } from 'react';
+
+const subscription = graphql`
+  subscription SinglePostSubscription($id: ID!) {
+    post(id: $id) {
+      id
+      title
+      body
+    }
+  }
+`;
 
 export default function SinglePost() {
   const params = useParams();
+  const decodedGid = atob(params?.gid);
+
+  useSubscription(
+    {
+      variables: { id: decodedGid },
+      subscription,
+      onNext(data) {
+        console.log('new data', data);
+      }
+    }
+  );
 
   const data = useLazyLoadQuery(
     graphql`
@@ -15,7 +37,8 @@ export default function SinglePost() {
         }
       }
     `,
-    { id: atob(params.gid) }
+    { id: atob(params?.gid) },
+    // { fetchKey, fetchPolicy: 'network' }
   )
 
   console.log('data', data);

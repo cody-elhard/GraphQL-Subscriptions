@@ -3,5 +3,6 @@ class Types::SubscriptionType < GraphQL::Schema::Object
   # field_class Types::BaseField
   # argument_class Types::BaseArgument
 
-  field :post_was_added_or_updated, subscription: ::Subscriptions::PostWasAddedOrUpdated
+  field :post, subscription: ::Subscriptions::Post
+  field :posts, subscription: ::Subscriptions::Posts
 end
