@@ -1,9 +1,9 @@
 import './App.css';
 import graphql from 'babel-plugin-relay/macro';
-import { RelayEnvironmentProvider, useLazyLoadQuery, useSubscription } from 'react-relay';
+import { useLazyLoadQuery, useSubscription } from 'react-relay';
 
-import RelayEnvSetup from './RelayEnvSetup';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 // import { useMemo } from 'react';
 
 const subscription = graphql`
@@ -55,7 +55,9 @@ function App() {
       <ul>
         {posts.map(post => (
           <li key={post.id}>
-            {post.title}
+            <Link to={`/posts/${btoa(post.id)}`}>
+              {post.title}
+            </Link>
           </li>
         ))}
       </ul>
@@ -63,12 +65,4 @@ function App() {
   );
 }
 
-function Wrapper() {
-  return (
-    <RelayEnvironmentProvider environment={RelayEnvSetup}>
-      <App />
-    </RelayEnvironmentProvider>
-  )
-}
-
-export default Wrapper;
+export default App;
