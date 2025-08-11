@@ -1,3 +1,5 @@
+⚠️ Requires paid usage of "Ruby GraphQL Pro"
+
 # GraphQL-Subscriptions
 
 - A demo project using `create-react-app` and `rails new` to demonstrate the use of GraphQL subscriptions
